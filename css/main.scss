@@ -1,0 +1,291 @@
+@import url('https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;700&display=swap');
+@function color($color-name) {
+    @return map-get($colors,
+    $color-name)
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: .3s;
+}
+
+$padding: 10px;
+$p-font: .8em;
+$colors: ( // ### Primary
+dark-blue: hsl(233, 26%, 24%),
+lime-green: hsl(136, 65%, 51%),
+bright-cyan: hsl(192, 70%, 51%),
+// ### Neutral
+grayish-bue: hsl(233, 8%, 62%),
+light-grayish-blue: hsl(220, 16%, 96%),
+very-light-gray: hsl(0, 0%, 98%),
+white: hsl(0, 0%, 100%),
+);
+body {
+    font-size: 18px;
+    font-family: 'Public Sans', sans-serif;
+}
+
+header {
+    padding: $padding;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: color(white);
+    z-index: 99999;
+    .right {
+        cursor: pointer;
+        // position: relative;
+        nav {
+            display: none;
+            padding: $padding;
+            font-weight: 300;
+            width: 80%;
+            left: 50%;
+            top: 50px;
+            transform: translate(-50%);
+            border-radius: 8px;
+            justify-content: center;
+            position: absolute;
+            background-color: color(white);
+            li {
+                display: block;
+                margin: 0 auto 10px;
+                font-size: .9em;
+                cursor: pointer;
+            }
+        }
+    }
+    // show / hide nav 
+    .right.active {
+        nav {
+            display: grid;
+        }
+    }
+    .request-btn {
+        display: none;
+    }
+}
+
+.mockups-section {
+    // background-img: url('../images/bg-intro-mobile.svg');
+    // background-color: red;
+    background-image: url('../images/bg-intro-mobile.svg');
+    background-repeat: no-repeat;
+    position: relative;
+    img {
+        width: 100%;
+    }
+    .intro {
+        position: absolute;
+        top: 40px;
+        left: 0;
+        z-index: -1;
+    }
+}
+
+.invitation-section {
+    text-align: center;
+    padding: $padding;
+    h1 {
+        font-weight: 400;
+    }
+    p {
+        margin: 20px 0;
+        font-size: $p-font;
+        color: color(grayish-bue);
+    }
+}
+
+// Global
+.request-btn {
+    background: red;
+    border-radius: 30px;
+    padding: 15px 40px;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    color: color(white);
+    font-size: .9em;
+    font-weight: 400;
+    cursor: pointer;
+    background: linear-gradient(90deg, color(lime-green), color(bright-cyan));
+}
+
+// End invitation section
+// Start advantages section
+.advantages-section {
+    background-color: color(light-grayish-blue);
+    padding-top: 50px;
+    text-align: center;
+    &>h1 {
+        font-size: 1.3em;
+    }
+    p {
+        font-size: $p-font;
+        color: color(grayish-bue);
+        margin: 20px 0 60px;
+    }
+    .advantage {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        background-color: color(light-grayish-blue);
+        h4 {
+            margin-top: 20px;
+        }
+        p {
+            margin: 20px 0;
+        }
+    }
+}
+
+// End advantages section
+// Start Articles section
+.articles {
+    background-color: color(very-light-gray);
+    padding: $padding;
+    padding-top: 100px;
+    text-align: center;
+    // overflow: hidden;
+    img {
+        width: 100%;
+        border-radius: 8px;
+    }
+    h2 {
+        margin-bottom: 30px;
+    }
+    .article {
+        margin-bottom: 30px;
+        border-radius: 8px;
+        background-color: color(white);
+        text-align: left;
+        .txt {
+            padding: $padding;
+        }
+        .author {
+            width: 100%;
+            margin: 20px 0;
+            display: inline-block;
+            font-size: .6em;
+            color: color(grayish-bue);
+        }
+        .article-title {
+            font-weight: 400;
+            font-size: 1.1em;
+        }
+        .article-title~p {
+            font-size: $p-font;
+            color: color(grayish-bue);
+            margin: 20px 0
+        }
+    }
+}
+
+// End Articles section
+// Start Footer
+footer {
+    background-color: color(dark-blue);
+    display: grid;
+    justify-content: center;
+    gap: 30px;
+    padding: 30px;
+    color: color(white);
+    text-align: center;
+    .icons {
+        img {
+            margin-right: 10px;
+            cursor: pointer;
+        }
+    }
+    nav {
+        li {
+            display: block;
+            margin-bottom: 10px;
+            font-size: .8em;
+            cursor: pointer;
+        }
+    }
+    .copy-rights {
+        color: color(grayish-bue);
+        font-size: .7em;
+        .request-btn {
+            margin-bottom: 20px;
+        }
+    }
+}
+
+// End Footer
+// Responsive 
+@media (min-width: 900px) {
+    .nav-btn {
+        display: none;
+    }
+    header {
+        // justify-content: space-around;
+        .right nav {
+            position: static;
+            width: auto;
+            display: block;
+            font-weight: 300;
+            padding: 0;
+            transform: translate(0%, 0);
+            li {
+                margin-left: 10px;
+                display: inline-block;
+                font-size: .9em;
+                cursor: pointer;
+            }
+        }
+        .request-btn {
+            display: block;
+            margin: 0;
+        }
+    }
+    main {
+        padding-left: 80px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+        justify-content: center;
+        .mockups-section {
+            order: 1;
+            background-position: -40px;
+            background-image: url('../images/bg-intro-desktop.svg');
+        }
+    }
+    .advantages-section,
+    .articles {
+        text-align: left;
+        padding: 40px 80px;
+        // font-size: 1em;
+        h3 {
+            font-size: 1.5em;
+        }
+    }
+    .advantages-container,
+    .articles-container {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 40px;
+    }
+    footer {
+        grid-template-columns: repeat(3, 1fr);
+        align-items: center;
+        ul {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            column-gap: 40px;
+            row-gap: 10px;
+        }
+    }
+}

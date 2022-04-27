@@ -1,0 +1,259 @@
+@import url("https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: 0.3s;
+}
+
+body {
+  font-size: 18px;
+  font-family: "Public Sans", sans-serif;
+}
+
+header {
+  padding: 10px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: hsl(0deg, 0%, 100%);
+  z-index: 99999;
+}
+header .right {
+  cursor: pointer;
+}
+header .right nav {
+  display: none;
+  padding: 10px;
+  font-weight: 300;
+  width: 80%;
+  left: 50%;
+  top: 50px;
+  transform: translate(-50%);
+  border-radius: 8px;
+  justify-content: center;
+  position: absolute;
+  background-color: hsl(0deg, 0%, 100%);
+}
+header .right nav li {
+  display: block;
+  margin: 0 auto 10px;
+  font-size: 0.9em;
+  cursor: pointer;
+}
+header .right.active nav {
+  display: grid;
+}
+header .request-btn {
+  display: none;
+}
+
+.mockups-section {
+  background-image: url("../images/bg-intro-mobile.svg");
+  background-repeat: no-repeat;
+  position: relative;
+}
+.mockups-section img {
+  width: 100%;
+}
+.mockups-section .intro {
+  position: absolute;
+  top: 40px;
+  left: 0;
+  z-index: -1;
+}
+
+.invitation-section {
+  text-align: center;
+  padding: 10px;
+}
+.invitation-section h1 {
+  font-weight: 400;
+}
+.invitation-section p {
+  margin: 20px 0;
+  font-size: 0.8em;
+  color: hsl(233deg, 8%, 62%);
+}
+
+.request-btn {
+  background: red;
+  border-radius: 30px;
+  padding: 15px 40px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  color: hsl(0deg, 0%, 100%);
+  font-size: 0.9em;
+  font-weight: 400;
+  cursor: pointer;
+  background: linear-gradient(90deg, hsl(136deg, 65%, 51%), hsl(192deg, 70%, 51%));
+}
+
+.advantages-section {
+  background-color: hsl(220deg, 16%, 96%);
+  padding-top: 50px;
+  text-align: center;
+}
+.advantages-section > h1 {
+  font-size: 1.3em;
+}
+.advantages-section p {
+  font-size: 0.8em;
+  color: hsl(233deg, 8%, 62%);
+  margin: 20px 0 60px;
+}
+.advantages-section .advantage {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: hsl(220deg, 16%, 96%);
+}
+.advantages-section .advantage h4 {
+  margin-top: 20px;
+}
+.advantages-section .advantage p {
+  margin: 20px 0;
+}
+
+.articles {
+  background-color: hsl(0deg, 0%, 98%);
+  padding: 10px;
+  padding-top: 100px;
+  text-align: center;
+}
+.articles img {
+  width: 100%;
+  border-radius: 8px;
+}
+.articles h2 {
+  margin-bottom: 30px;
+}
+.articles .article {
+  margin-bottom: 30px;
+  border-radius: 8px;
+  background-color: hsl(0deg, 0%, 100%);
+  text-align: left;
+}
+.articles .article .txt {
+  padding: 10px;
+}
+.articles .article .author {
+  width: 100%;
+  margin: 20px 0;
+  display: inline-block;
+  font-size: 0.6em;
+  color: hsl(233deg, 8%, 62%);
+}
+.articles .article .article-title {
+  font-weight: 400;
+  font-size: 1.1em;
+}
+.articles .article .article-title ~ p {
+  font-size: 0.8em;
+  color: hsl(233deg, 8%, 62%);
+  margin: 20px 0;
+}
+
+footer {
+  background-color: hsl(233deg, 26%, 24%);
+  display: grid;
+  justify-content: center;
+  gap: 30px;
+  padding: 30px;
+  color: hsl(0deg, 0%, 100%);
+  text-align: center;
+}
+footer .icons img {
+  margin-right: 10px;
+  cursor: pointer;
+}
+footer nav li {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 0.8em;
+  cursor: pointer;
+}
+footer .copy-rights {
+  color: hsl(233deg, 8%, 62%);
+  font-size: 0.7em;
+}
+footer .copy-rights .request-btn {
+  margin-bottom: 20px;
+}
+
+@media (min-width: 900px) {
+  .nav-btn {
+    display: none;
+  }
+
+  header .right nav {
+    position: static;
+    width: auto;
+    display: block;
+    font-weight: 300;
+    padding: 0;
+    transform: translate(0%, 0);
+  }
+  header .right nav li {
+    margin-left: 10px;
+    display: inline-block;
+    font-size: 0.9em;
+    cursor: pointer;
+  }
+  header .request-btn {
+    display: block;
+    margin: 0;
+  }
+
+  main {
+    padding-left: 80px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    justify-content: center;
+  }
+  main .mockups-section {
+    order: 1;
+    background-position: -40px;
+    background-image: url("../images/bg-intro-desktop.svg");
+  }
+
+  .advantages-section,
+.articles {
+    text-align: left;
+    padding: 40px 80px;
+  }
+  .advantages-section h3,
+.articles h3 {
+    font-size: 1.5em;
+  }
+
+  .advantages-container,
+.articles-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+  }
+
+  footer {
+    grid-template-columns: repeat(3, 1fr);
+    align-items: center;
+  }
+  footer ul {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    -moz-column-gap: 40px;
+         column-gap: 40px;
+    row-gap: 10px;
+  }
+}/*# sourceMappingURL=main.css.map */
